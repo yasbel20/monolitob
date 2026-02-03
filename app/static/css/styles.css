@@ -1,4 +1,4 @@
-/* ********** Custom Properties (BagShop Theme - Blanco & Rosa) ********** */
+
 :root {
   --primary-pink: #c2185b;       /* Rosa vibrante principal */
   --secondary-pink: #f8bbd9;     /* Rosa claro suave */
@@ -14,7 +14,7 @@
   --danger-color: #f44336;       /* Rojo para peligro */
 }
 
-/* ********** Reset Styles ********** */
+
 html {
   height: 100%;
   scroll-behavior: smooth;

@@ -7,11 +7,7 @@ from mysql.connector.cursor import MySQLCursorDict
 # Carga .env desde la raíz
 load_dotenv(find_dotenv())
 
-
-# --------------------------------------------------
-# CONEXIÓN
-# --------------------------------------------------
-
+#conexión a la base de datos
 def get_connection():
     return mysql.connector.connect(
         host=os.getenv("DB_HOST", "localhost"),        
@@ -22,9 +18,6 @@ def get_connection():
         charset="utf8mb4"
     )
 
-# --------------------------------------------------
-# SELECT: listar todos los bolsos
-# --------------------------------------------------
 def fetch_all_bolsos() -> List[Dict[str, Any]]:
     """
     Obtiene todos los bolsos.
@@ -44,9 +37,7 @@ def fetch_all_bolsos() -> List[Dict[str, Any]]:
         if conn:
             conn.close()
 
-# --------------------------------------------------
-# INSERT: nuevo bolso
-# --------------------------------------------------
+#insertar bolso
 def insert_bolso(
     nombre: str,
     marca: str,
@@ -86,9 +77,6 @@ def insert_bolso(
         if conn:
             conn.close()
 
-# --------------------------------------------------
-# SELECT: obtener bolso por ID
-# --------------------------------------------------
 def fetch_bolso_by_id(bolso_id: int) -> Dict[str, Any] | None:
     """
     Obtiene un bolso por su ID.

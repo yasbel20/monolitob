@@ -15,10 +15,6 @@ from app.database import (
     update_bolso
 )
 
-# --------------------------------------------------
-# MODELOS Pydantic
-# --------------------------------------------------
-
 # Modelo base con validaciones comunes
 class BolsoBase(BaseModel):
     nombre: str
@@ -84,12 +80,6 @@ class BolsoCreate(BolsoBase):
 
 class BolsoUpdate(BolsoBase):
     pass
-
-
-# --------------------------------------------------
-# APP
-# --------------------------------------------------
-
 app = FastAPI(title="BagShop – Tienda de Bolsos")
 
 # Servir archivos estáticos
@@ -98,10 +88,6 @@ app.mount("/static", StaticFiles(directory="app/static"), name="static")
 # Motor de plantillas
 templates = Jinja2Templates(directory="app/templates")
 
-
-# --------------------------------------------------
-# UTILIDAD
-# --------------------------------------------------
 def map_rows_to_bolsos(rows: List[dict]) -> List[BolsoDB]:
     """
     Convierte las filas del SELECT * FROM bolsos (dict) 
@@ -109,18 +95,13 @@ def map_rows_to_bolsos(rows: List[dict]) -> List[BolsoDB]:
     """
     return [BolsoDB(**row) for row in rows]
 
-
-# --------------------------------------------------
-# RUTAS
-# --------------------------------------------------
-
 # --- GET principal ---
 @app.get("/", response_class=HTMLResponse)
 def get_index(request: Request, msg: str = None):
-    # 1️⃣ Obtenemos los datos desde MySQL
+
     rows = fetch_all_bolsos()
 
-    # 2️⃣ Convertimos cada fila a Bolso (valida estructura)
+
     bolsos = map_rows_to_bolsos(rows)
 
     # Lógica para decidir qué mensaje mostrar
@@ -132,7 +113,7 @@ def get_index(request: Request, msg: str = None):
     elif msg == "deleted":
         mensaje_exito = "El bolso ha sido eliminado."
 
-    # 3️⃣ Enviamos a la plantilla
+    #  Enviamos a la plantilla
     return templates.TemplateResponse(
         "pages/index.html",
         {
