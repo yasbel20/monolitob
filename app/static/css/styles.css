@@ -1,0 +1,360 @@
+/* ********** Custom Properties (BagShop Theme - Blanco & Rosa) ********** */
+:root {
+  --primary-pink: #c2185b;       /* Rosa vibrante principal */
+  --secondary-pink: #f8bbd9;     /* Rosa claro suave */
+  --soft-pink: #ffebee;          /* Rosa muy claro */
+  --pure-white: #ffffff;         /* Blanco puro */
+  --light-gray: #f5f5f5;         /* Gris claro para fondos */
+  --text-dark: #212529;          /* Gris oscuro para texto */
+  --text-muted: #757575;         /* Gris medio */
+  --accent-rose: #e91e63;        /* Rosa acento */
+  --accent-light: #fce4ec;       /* Rosa pastel */
+  --success-color: #4caf50;      /* Verde para éxito */
+  --warning-color: #ff9800;      /* Naranja para advertencias */
+  --danger-color: #f44336;       /* Rojo para peligro */
+}
+
+/* ********** Reset Styles ********** */
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--light-gray);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* ********** Enlaces ********** */
+a {
+  color: var(--primary-pink);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+a:hover {
+  color: var(--accent-rose);
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--accent-rose);
+  transition: width 0.3s ease;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+/* ********** Bootstrap Overrides ********** */
+/* Navbar */
+.navbar {
+  background-color: var(--pure-white) !important;
+  box-shadow: 0 2px 10px rgba(194, 24, 91, 0.08);
+  padding: 1rem 0;
+}
+
+.navbar-brand {
+  color: var(--primary-pink) !important;
+  font-weight: 700;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-brand i {
+  font-size: 1.8rem;
+}
+
+.nav-link {
+  color: var(--text-dark) !important;
+  font-weight: 500;
+  padding: 0.5rem 1rem !important;
+  margin: 0 0.25rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary-pink) !important;
+  background-color: var(--accent-light);
+}
+
+.nav-link.active {
+  color: var(--pure-white) !important;
+  background-color: var(--primary-pink);
+  font-weight: 600;
+}
+
+/* Botones */
+.btn-primary {
+  background-color: var(--primary-pink) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 0.625rem 1.5rem !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 12px rgba(194, 24, 91, 0.2) !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-rose) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(233, 30, 99, 0.3) !important;
+}
+
+.btn-outline-warning {
+  color: var(--warning-color) !important;
+  border-color: var(--warning-color) !important;
+}
+
+.btn-outline-danger {
+  color: var(--danger-color) !important;
+  border-color: var(--danger-color) !important;
+}
+
+.btn-group .btn {
+  border-radius: 6px !important;
+  margin: 0 2px;
+}
+
+/* Alertas */
+.alert-success {
+  background-color: rgba(76, 175, 80, 0.1) !important;
+  border-color: var(--success-color) !important;
+  color: #2e7d32 !important;
+}
+
+.alert-danger {
+  background-color: rgba(244, 67, 54, 0.1) !important;
+  border-color: var(--danger-color) !important;
+  color: #c62828 !important;
+}
+
+/* Tarjetas */
+.card {
+  border: none !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12) !important;
+}
+
+.card-header {
+  background-color: var(--pure-white) !important;
+  border-bottom: 1px solid var(--secondary-pink) !important;
+  padding: 1.25rem 1.5rem !important;
+}
+
+.card-footer {
+  background-color: var(--soft-pink) !important;
+  border-top: 1px solid var(--secondary-pink) !important;
+}
+
+/* Tablas */
+.table {
+  margin-bottom: 0 !important;
+}
+
+.table thead th {
+  background-color: var(--soft-pink) !important;
+  color: var(--primary-pink) !important;
+  font-weight: 600 !important;
+  border-bottom: 2px solid var(--secondary-pink) !important;
+  padding: 1rem !important;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.table tbody td {
+  padding: 1rem !important;
+  vertical-align: middle !important;
+  border-color: var(--secondary-pink) !important;
+}
+
+.table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+  background-color: var(--accent-light) !important;
+}
+
+/* ********** Componentes Personalizados ********** */
+/* Badges */
+.badge {
+  font-weight: 500 !important;
+  padding: 0.4em 0.8em !important;
+  border-radius: 20px !important;
+  font-size: 0.85rem !important;
+}
+
+.bg-success {
+  background-color: var(--success-color) !important;
+}
+
+.bg-warning {
+  background-color: var(--warning-color) !important;
+}
+
+.bg-danger {
+  background-color: var(--danger-color) !important;
+}
+
+/* Badge de color de bolso */
+.badge[style*="background-color"] {
+  min-width: 60px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+}
+
+/* Modal */
+.modal-content {
+  border: none !important;
+  border-radius: 12px !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+.modal-header {
+  background-color: var(--soft-pink) !important;
+  border-bottom: 1px solid var(--secondary-pink) !important;
+}
+
+.modal-footer {
+  background-color: var(--light-gray) !important;
+  border-top: 1px solid var(--secondary-pink) !important;
+}
+
+/* ********** Layout ********** */
+main {
+  flex: 1;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+.container {
+  max-width: 1200px;
+}
+
+/* Títulos */
+h1.display-5 {
+  color: var(--primary-pink) !important;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+h1.display-5::after {
+  content: '';
+  position: absolute;
+  width: 60%;
+  height: 4px;
+  background-color: var(--secondary-pink);
+  bottom: -10px;
+  left: 20%;
+  border-radius: 2px;
+}
+
+.lead {
+  color: var(--text-muted) !important;
+  font-size: 1.1rem;
+}
+
+/* Footer */
+footer {
+  background-color: var(--pure-white) !important;
+  border-top: 1px solid var(--secondary-pink);
+  padding: 2rem 0 !important;
+  margin-top: auto;
+}
+
+footer p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ********** Responsive ********** */
+@media (max-width: 768px) {
+  .navbar-collapse {
+    background-color: var(--pure-white);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 0.5rem;
+  }
+  
+  .table-responsive {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--secondary-pink);
+  }
+  
+  .btn-group {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  .btn-primary {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+/* ********** Animaciones ********** */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main > .container {
+  animation: fadeIn 0.6s ease-out;
+}
+
+
+.shadow-soft {
+  box-shadow: 0 4px 15px rgba(194, 24, 91, 0.08) !important;
+}
+
+.border-pink {
+  border-color: var(--secondary-pink) !important;
+}
+
+.text-pink {
+  color: var(--primary-pink) !important;
+}
+
+.bg-soft-pink {
+  background-color: var(--soft-pink) !important;
+}
