@@ -1,4 +1,7 @@
-# 👜 BagShop - Sistema de Gestión de Inventario de Bolsos
+#  Bolso - Sistema de Gestión de Inventario de Bolsos
+
+# JOSELIN YASBEL OLIVARES SOTO
+# 03/02/2026
 
 Este es un proyecto **monolítico** desarrollado con **FastAPI** para la gestión del inventario de una tienda de bolsos. Permite realizar operaciones CRUD completas utilizando **SQL directo** (sin ORM) y validaciones avanzadas con **Pydantic**.
 
